@@ -1,11 +1,11 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://server.aouk.co.uk/api/v1
 
-# AO API
+# AO Core API
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+AO is a simple API allowing consumers to view products and items.
 
-# Polls API Root [/]
+# AO API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial
 API affordances in the form of the links in the JSON body.
@@ -20,162 +20,163 @@ to keep your client decoupled from implementation details.
 + Response 200 (application/json)
 
         {
-            "questions_url": "/questions"
+            "product_url": "/products",
+            "copy_url": "/copies",
+            "price_url": "/prices",
+            "picture_url": "/pictures",
         }
 
-## Group Question
+## Group Copy
 
-Resources related to questions in the API.
+Resources related to copies in the API.
 
-## Question [/questions/{question_id}]
+## Copies Collection [/copies?limit={limit_num}&offset={offset_num}&profile={profile_name}]
 
-A Question object has the following attributes:
-
-+ question
-+ published_at - An ISO8601 date when the question was published.
-+ url
-+ choices - An array of Choice objects.
++ length
++ offset
++ total
++ copies - An array of Copy objects.
 
 + Parameters
-    + question_id (required, number, `1`) ... ID of the Question in form of an integer
+    + limit_num (optional, number, `10`) ... limit 
+    + offset_num (optional, number, `0`) ... offset
+    + profile_name (optional, string, `hotels`) ... profile
 
-### View a Questions Detail [GET]
-
-+ Response 200 (application/json)
-
-                {
-                    "question": "Favourite programming language?",
-                    "published_at": "2014-11-11T08:40:51.620Z",
-                    "url": "/questions/1",
-                    "choices": [
-                        {
-                            "choice": "Swift",
-                            "url": "/questions/1/choices/1",
-                            "votes": 2048
-                        }, {
-                            "choice": "Python",
-                            "url": "/questions/1/choices/2",
-                            "votes": 1024
-                        }, {
-                            "choice": "Objective-C",
-                            "url": "/questions/1/choices/3",
-                            "votes": 512
-                        }, {
-                            "choice": "Ruby",
-                            "url": "/questions/1/choices/4",
-                            "votes": 256
-                        }
-                    ]
-                }
-
-## Choice [/questions/{question_id}/choices/{choice_id}]
-
-+ Parameters
-    + question_id (required, number, `1`) ... ID of the Question in form of an integer
-    + choice_id (required, number, `1`) ... ID of the Choice in form of an integer
-
-### Vote on a Choice [POST]
-
-This action allows you to vote on a question's choice.
-
-+ Response 201
-
-    + Headers
-
-            Location: /questions/1
-
-## Questions Collection [/questions{?page}]
-
-+ Parameters
-    + page (optional, number, `1`) ... The page of questions to return
-
-### List All Questions [GET]
-
+### List All Copies [GET]
 + Response 200 (application/json)
 
     + Headers
-
-            Link: </questions?page=2>; rel="next"
-
+        
+            Link: </copies?limit=10&offset=10&profile=hotels>; rel="next"
+            
     + Body
 
-            [
                 {
-                    "question": "Favourite programming language?",
-                    "published_at": "2014-11-11T08:40:51.620Z",
-                    "url": "/questions/1",
-                    "choices": [
-                        {
-                            "choice": "Swift",
-                            "url": "/questions/1/choices/1",
-                            "votes": 2048
-                        }, {
-                            "choice": "Python",
-                            "url": "/questions/1/choices/2",
-                            "votes": 1024
-                        }, {
-                            "choice": "Objective-C",
-                            "url": "/questions/1/choices/3",
-                            "votes": 512
-                        }, {
-                            "choice": "Ruby",
-                            "url": "/questions/1/choices/4",
-                            "votes": 256
-                        }
-                    ]
+                    "length": 3,
+                    "offset": 0,
+                    "total": 3,
+                    "copies": [{
+                            "id": 1,
+                            "name": "copy_name_1",
+                            "fields": [
+                                "Content" : “copy example 1”,
+                                "Language" : "en",
+                                "Comments" : ""  
+                            ]
+                    }, {
+                            "id": 2,
+                            "name": "copy_name_2",
+                            "fields": [
+                                "Content" : “copy example 2”,
+                                "Language" : "en",
+                                "Comments" : ""  
+                            ]
+                    }, {
+                            "id": 3,
+                            "name": "copy_name_3",
+                            "fields": [
+                                "Content" : “copy example 3”,
+                                "Language" : "en",
+                                "Comments" : ""  
+                            ]
+                    }]
                 }
+
+## Retrive a Copy by id [/copies/{copy_id}?profile={profile_name}]
+
++ id - serial number of copy.
++ name - name of copy.
++ fields - An array of copy fields.
+
++ Parameters
+    + copy_id (required, number, `1`) ... Serial Number of the Copy
+    + profile_name (optional, string, `hotels`) ... profile
+
+### View a Copy Datail [GET]
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "copy_name_1",
+            "fields": [
+                "Content" : “copy example 1”,
+                "Language" : "en",
+                "Comments" : ""  
             ]
+        }
 
-### Create a New Question [POST]
+## Retrive a Copy by name [/copies/{copy_name}/name?profile={profile_name}]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+May return many copies!
 
-+ question (string) - The question
-+ choices (array[string]) - A collection of choices.
++ id - serial number of copy.
++ name - name of copy.
++ fields - An array of copy fields.
+
++ Parameters
+    + copy_name (required, string, `copy_name_1`) ... Name of the Copy
+    + profile_name (optional, string, `hotels`) ... profile
+
+### View a Copy Datail [GET]
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "copy_name_1",
+            "fields": [
+                "Content" : “copy example 1”,
+                "Language" : "en",
+                "Comments" : ""  
+            ]
+        }
+
+## Create a new Copy [/copies]
+
+### Create a New Copy [POST]
 
 + Request (application/json)
 
+    + Body
+        
             {
-                "question": "Favourite programming language?",
-                "choices": [
-                    "Swift",
-                    "Python",
-                    "Objective-C",
-                    "Ruby"
+                "name": "copy_name_4",
+                "fields": [
+                    "Content" : “copy example 4”,
+                    "Language" : "en",
+                    "Comments" : ""  
                 ]
             }
-
-+ Response 201 (application/json)
+    
++ Response 201
 
     + Headers
+            
+            Location: /copies/4
 
-            Location: /questions/2
+## Update/Delete a Copy [/copies/{copy_id}]
+
++ Parameters
+    + copy_id (required, number, `3`) ... Serial Number of Copy
+
+### Update a Copy [PUT]
+
++ Request (application/json)
 
     + Body
+    
+            {
+                "fields": [
+                    "Content" : “copy example 3 Updated”
+                ]
+            }
+        
++ Response 200
 
-                {
-                    "question": "Favourite programming language?",
-                    "published_at": "2014-11-11T08:40:51.620Z",
-                    "url": "/questions/2",
-                    "choices": [
-                        {
-                            "choice": "Swift",
-                            "url": "/questions/2/choices/1",
-                            "votes": 0
-                        }, {
-                            "choice": "Python",
-                            "url": "/questions/2/choices/2",
-                            "votes": 0
-                        }, {
-                            "choice": "Objective-C",
-                            "url": "/questions/2/choices/3",
-                            "votes": 0
-                        }, {
-                            "choice": "Ruby",
-                            "url": "/questions/2/choices/4",
-                            "votes": 0
-                        }
-                    ]
-                }
+    + Headers
+    
+            Location: /copies/3
+
+### Delete a Copy [DELETE]
+
++ Response 200
+
