@@ -288,14 +288,14 @@ Resources related to products in the API.
     
             Location: /products/4
 
-### Group Product Link
+## Group Product Link
 
-#### All Links [/products/{sku_id}/links]
+## All Links [/products/{sku_id}/links]
 
 + Parameters
     + sku_id (required, number) ... ID of the Product
 
-##### List All Links [GET]
+### List All Links [GET]
 
 + Response 200 (application/json)
 
@@ -313,7 +313,7 @@ Resources related to products in the API.
             }]
         }
         
-##### Link to Product [POST]
+### Link to Product [POST]
 
 + Request (application/json)
 
@@ -333,7 +333,7 @@ Resources related to products in the API.
     
             Location: /products/4/links
 
-##### UnLink from Product [DELETE]
+### UnLink from Product [DELETE]
 
 + Request (application/json)
 
@@ -350,9 +350,9 @@ Resources related to products in the API.
     
             Location: /products/4/links
 
-#### Copy Links [/products/{sku_id}/copies]
+## Copy Links [/products/{sku_id}/copies]
 
-##### List All linked Copies [GET]
+### List All linked Copies [GET]
 
 + Response 200 (application/json)
 
