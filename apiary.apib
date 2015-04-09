@@ -5,7 +5,7 @@ HOST: http://server.aouk.co.uk/api/v1
 
 AO is a simple API allowing consumers to view products and items.
 
-# AO API Root [/]
+# AO Core API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial
 API affordances in the form of the links in the JSON body.
@@ -38,11 +38,13 @@ Resources related to copies in the API.
 + copies - An array of Copy objects.
 
 + Parameters
-    + limit_num (optional, number, `10`) ... limit 
+    + limit_num (optional, number, `10`) ... Maximum number of posts to retrieve 
+        + Default: `10`
     + offset_num (optional, number, `0`) ... offset
     + profile_name (optional, string, `hotels`) ... profile
 
 ### List All Copies [GET]
+
 + Response 200 (application/json)
 
     + Headers
@@ -170,7 +172,7 @@ May return many copies!
                 ]
             }
         
-+ Response 200
++ Response 204
 
     + Headers
     
@@ -178,5 +180,5 @@ May return many copies!
 
 ### Delete a Copy [DELETE]
 
-+ Response 200
++ Response 204
 
