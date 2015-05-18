@@ -38,8 +38,7 @@ Resources related to copies in the API.
 + copies - An array of Copy objects.
 
 + Parameters
-    + limit_num (optional, number, `10`) ... Maximum number of posts to retrieve 
-        + Default: `10`
+    + limit_num (optional, number, `10`) ... Maximum number of posts to retrieve, default value is 10
     + offset_num (optional, number, `0`) ... offset
     + profile_name (optional, string, `hotels`) ... profile
 
@@ -54,10 +53,10 @@ Resources related to copies in the API.
     + Body
 
                 {
-                    "length": 3,
                     "offset": 0,
+                    "limit":10,
                     "total": 3,
-                    "copies": [{
+                    "content": [{
                             "id": 1,
                             "name": "copy name 1",
                             "fields": [
@@ -189,8 +188,7 @@ Resources related to products in the API.
 ## Products Collection [/products?limit={limit_num}&offset={offset_num}&profile={profile_name}]
 
 + Parameters
-    + limit_num (optional, number, `10`) ... Maximum number of posts to retrieve 
-        + Default: `10`
+    + limit_num (optional, number, `10`) ... Maximum number of posts to retrieve
     + offset_num (optional, number, `0`) ... offset
     + profile_name (optional, string, `hotels`) ... profile
 
@@ -208,7 +206,7 @@ Resources related to products in the API.
                 "length": 10,
                 "offset": 0,
                 "total": 3000,
-                "products": [{
+                "content": [{
                     "id": 1,
                     "name": "Test Product 1",
                     "fields":[
