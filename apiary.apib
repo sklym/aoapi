@@ -26,6 +26,37 @@ to keep your client decoupled from implementation details.
             "picture_url": "/pictures",
         }
 
+## Group Profile
+
+Resources related to profiles in the API.
+
+## Available Profiles [/profiles]
+
+### [GET]
+
++ Response 200 (application/json)
+
+    {["all", "test"]}
+
+## Permissions [/profiles/premissions]
+
+### [GET]
+
++ Response 200 (application/json)
+
+    {"Delete Product":"allowed","Create Picture":"allowed",
+    "Delete Logo":"allowed","Edit Edition":"allowed","Swap Page Objects":"allowed",
+    "Delete Page Object":"allowed","Link/ Unlink Copy":"denied",
+    "Add/Create Page Object":"allowed","Link Product":"denied",
+    "Add Edition product":"allowed","Hide Price":"denied",
+    "Link/Unlink Movie":"denied","Edit Movie":"allowed","Edit Product":"allowed",
+    "Create Product":"allowed","Edit Page Info":"allowed","Edit Price":"allowed",
+    "Edit Copy":"denied","Create Edition":"denied","Move Pages":"denied",
+    "Create Copy":"allowed","Link/Unlink Picture":"denied","Create Movie":"allowed",
+    "Delete Movie":"allowed","Delete Edition":"denied","Edit Logo":"allowed",
+    "Edit Picture":"allowed","Delete Price":"denied","Add Pages":"denied",
+    "Archive Product":"allowed","Delete Copy":"allowed","Delete Picture":"allowed","Create Price":"allowed","Create Logo":"allowed","Delete Pages":"denied","Link/Unlink Logo":"denied","Search for Products":"allowed"}
+
 ## Group Copy
 
 Resources related to copies in the API.
