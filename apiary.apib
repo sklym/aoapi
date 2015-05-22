@@ -443,4 +443,194 @@ Resources related to products in the API.
 
 + Response 204
 
+## Group Prices
 
+Resources related to Prices in the API.
+
+## Prices Collection [/prices]
+
+### List All Prices [GET]
+
++ Response 200 (application/json)
+
+        {"total":3074061,"offset":0,"limit":10,"profile":"all","content":[
+        {"id":1,"name":"GT.2A-1806","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":2,"name":"GT.2A-1807","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1807","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-01","Type":"DB","Travel To Date":"2013-01-01","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":3,"name":"GT.2A-1808","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1808","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-02","Type":"DB","Travel To Date":"2013-01-02","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":4,"name":"GT.2A-1809","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1809","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-03","Type":"DB","Travel To Date":"2013-01-03","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":5,"name":"GT.2A-1810","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1810","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-04","Type":"DB","Travel To Date":"2013-01-04","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":6,"name":"GT.2A-1811","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1811","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-05","Type":"DB","Travel To Date":"2013-01-05","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":7,"name":"GT.2A-1812","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1812","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-06","Type":"DB","Travel To Date":"2013-01-06","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":8,"name":"GT.2A-1813","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1813","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-07","Type":"DB","Travel To Date":"2013-01-07","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":9,"name":"GT.2A-1814","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1814","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-08","Type":"DB","Travel To Date":"2013-01-08","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":10,"name":"GT.2A-1815","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1815","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2013-01-09","Type":"DB","Travel To Date":"2013-01-09","Show Prices":true,"Inactive":false,"Validity":""}}]}
+
+## Price [/prices/{id}]
+
++ Parameters
+    + id (required, number, `1`) ... ID of the Price
+
+### View a Price Detail [GET]
+
++ Response 200 (application/json)
+
+        {"id":1,"name":"GT.2A-1806","fields":{"Price Format":0,"Type":"DB","User":"GTA","Mod. Date":1357611825000,"Price Name":"GT.2A-1806","Show Prices":true,"Validity":"","Comments":"","Inactive":false,"Travel To Date":"2012-12-31","Price":303.00,"Travel From Date":"2012-12-31"}}
+
+### Update a Price [PUT]
+
++ Request (application/json)
+
+        { 
+            "fields":{
+                "Comments":"change",
+                "Price":303.00,
+                "Price Format":0,
+                "Price Name":"GT.2A-1806",
+                "Travel From Date":"2012-12-31",
+                "Type":"DB",
+                "Travel To Date":"2012-12-31",
+                "Show Prices":true,
+                "Inactive":false,
+                "Validity":""}
+        }
++ Response 204
+
+    + Headers
+    
+            Location: /prices/2
+
+### Delete a Price [DELETE]
+
++ Response 204
+
+## Create a Price [/prices/product/{id}]
+
++ Parameters
+    + id (required, number, `55`) ... ID of the Price owner (Product ID)
+
+### Create a Price [POST]
+
++ Request (application/json)
+
+        { 
+            "name":"GT.2A-1806",
+            "fields":{
+                "Comments":"",
+                "Price":303.00,
+                "Price Format":0,
+                "Price Name":"GT.2A-1806",
+                "Travel From Date":"2012-12-31",
+                "Type":"DB",
+                "Travel To Date":"2012-12-31",
+                "Show Prices":true,
+                "Inactive":false,
+                "Validity":""}
+        }
+        
++ Response 201
+
+    + Headers
+    
+            Location: /prices/4
+
+
+## Prices by Name [/prices/{name}/name]
+
++ Parameters
+    + name (required, string, `GT.2A-1806`) ... name of the Price
+
+### List Prices [GET]
+
++ Response 200 (application/json)
+
+        {"total":4700,"offset":0,"limit":10,"profile":"all","content":[
+        {"id":1,"name":"GT.2A-1806","fields":{"Comments":"","Price":303.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611825000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":93,"name":"GT.2A-1806","fields":{"Comments":"","Price":196.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611826000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":163,"name":"GT.2A-1806","fields":{"Comments":"","Price":286.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611826000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":313,"name":"GT.2A-1806","fields":{"Comments":"","Price":167.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611827000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":433,"name":"GT.2A-1806","fields":{"Comments":"","Price":124.50,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611827000,"User":"GTA","Travel From Date":"2012-12-31","Type":"SB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":524,"name":"GT.2A-1806","fields":{"Comments":"","Price":382.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611828000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":637,"name":"GT.2A-1806","fields":{"Comments":"","Price":130.50,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611828000,"User":"GTA","Travel From Date":"2012-12-31","Type":"SB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":718,"name":"GT.2A-1806","fields":{"Comments":"","Price":122.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611829000,"User":"GTA","Travel From Date":"2012-12-31","Type":"SB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":809,"name":"GT.2A-1806","fields":{"Comments":"","Price":130.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611829000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}},
+        {"id":895,"name":"GT.2A-1806","fields":{"Comments":"","Price":179.00,"Price Format":0,"Price Name":"GT.2A-1806","Mod. Date":1357611829000,"User":"GTA","Travel From Date":"2012-12-31","Type":"DB","Travel To Date":"2012-12-31","Show Prices":true,"Inactive":false,"Validity":""}}
+        ]}
+
+## Group Pictures
+Resources related to pictures in the API.
+
+## Pictures Collection [/pictures]
+
+### List All Pictures [GET]
+
++ Response 200 (application/json)
+
+        {"total":44641,"offset":0,"limit":10,"profile":"all","content":[
+        {"id":3,"name":"4826576-2400x1618.jpg","fields":{"Comments":"Importer","File Name":"4826576-2400x1618.jpg","Low Res. Path":":ao:ImageImportV:upload_dir:4826576-2400x1618.jpg","Status":"Unlinked","Image Name":"4826576-2400x1618.jpg","Mod. Date":1360630240000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6867,"name":"ZB743_213181_2820_Hero.jpg","fields":{"Comments":"DLP4","File Name":"ZB743_213181_2820_Hero.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"ZB743_213181_2820_Hero","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6868,"name":"ZB743_213181_2820_Filler.jpg","fields":{"Comments":"DLP4","File Name":"ZB743_213181_2820_Filler.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"ZB743_213181_2820_Filler","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6869,"name":"B1120_120893_000741_Hero.jpg","fields":{"Comments":"DLP4","File Name":"B1120_120893_000741_Hero.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"B1120_120893_000741_Hero","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6870,"name":"B1120_120893_000741_Filler.jpg","fields":{"Comments":"DLP4","File Name":"B1120_120893_000741_Filler.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"B1120_120893_000741_Filler","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6871,"name":"ZB5003_190434_0008_Hero.jpg","fields":{"Comments":"DLP4","File Name":"ZB5003_190434_0008_Hero.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"ZB5003_190434_0008_Hero","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6872,"name":"ZB5003_190434_0008_Filler.jpg","fields":{"Comments":"DLP4","File Name":"ZB5003_190434_0008_Filler.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"ZB5003_190434_0008_Filler","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6873,"name":"B1337_158732_0010_Hero.jpg","fields":{"Comments":"DLP4","File Name":"B1337_158732_0010_Hero.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"B1337_158732_0010_Hero","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6874,"name":"B1337_158732_0010_Filler.jpg","fields":{"Comments":"DLP4","File Name":"B1337_158732_0010_Filler.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"B1337_158732_0010_Filler","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
+        {"id":6875,"name":"ZB743_213181_1752_Hero.jpg","fields":{"Comments":"DLP4","File Name":"ZB743_213181_1752_Hero.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"ZB743_213181_1752_Hero","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}}]}
+
+## Picture [/picture/{id}]
+
++ Parameters
+    + id (required, number) ... ID of the picture
+
+### View a Picture Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id":6867,
+            "name":"ZB743_213181_2820_Hero.jpg",
+            "fields":{
+                "Comments":"DLP4",
+                "File Name":"ZB743_213181_2820_Hero.jpg",
+                "Low Res. Path":"internal",
+                "Status":"Unlinked",
+                "Image Name":"ZB743_213181_2820_Hero",
+                "Mod. Date":1360631716000,
+                "Target Channel":"All",
+                "Royalty":"Free",
+                "Image Category":"Destination",
+                "Image Supplier":"In-house",
+                "Image Size":"",
+                "Image Height":"",
+                "Image Width":"",
+                "Caption":"",
+                "Copyright":""}
+        }
+
+### Update a Picture [PUT]
+
++ Request (application/json)
+
+        {
+            "fields":{
+                "Comments":"DLP4",
+                
+                "Low Res. Path":"internal",
+                "Status":"Unlinked",
+                
+                "Mod. Date":1360631716000,
+                "Target Channel":"All",
+                "Royalty":"Free",
+                "Image Category":"Destination",
+                "Image Supplier":"In-house",
+                "Image Size":"",
+                "Image Height":"",
+                "Image Width":"",
+                "Caption":"",
+                "Copyright":""}
+        }
++ Response 204
+
+    + Headers
+    
+            Location: /pictures/333
