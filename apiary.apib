@@ -577,10 +577,39 @@ Resources related to pictures in the API.
         {"id":6874,"name":"B1337_158732_0010_Filler.jpg","fields":{"Comments":"DLP4","File Name":"B1337_158732_0010_Filler.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"B1337_158732_0010_Filler","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}},
         {"id":6875,"name":"ZB743_213181_1752_Hero.jpg","fields":{"Comments":"DLP4","File Name":"ZB743_213181_1752_Hero.jpg","Low Res. Path":"internal","Status":"Unlinked","Image Name":"ZB743_213181_1752_Hero","Mod. Date":1360631716000,"Target Channel":"All","Royalty":"Free","Image Category":"Destination","Image Supplier":"In-house","Image Size":"","Image Height":"","Image Width":"","Caption":"","Copyright":""}}]}
 
-## Picture [/picture/{id}]
+### Create a New Picture [POST]
+
++ Request (application/json)
+
+        {
+            "name":"ZB743_213181_2820_Hero.jpg",
+            "fields":{
+                "Comments":"DLP4",
+                "File Name":"ZB743_213181_2820_Hero.jpg",
+                "Low Res. Path":"internal",
+                "Status":"Unlinked",
+                "Image Name":"ZB743_213181_2820_Hero",
+                "Target Channel":"All",
+                "Royalty":"Free",
+                "Image Category":"Destination",
+                "Image Supplier":"In-house",
+                "Image Size":"",
+                "Image Height":"",
+                "Image Width":"",
+                "Caption":"",
+                "Copyright":""}
+        }
+
++ Response 201
+
+    + Headers
+    
+            Location: /pictures/6867
+
+## Picture [/pictures/{id}]
 
 + Parameters
-    + id (required, number) ... ID of the picture
+    + id (required, number,`6867`) ... ID of the picture
 
 ### View a Picture Detail [GET]
 
@@ -629,7 +658,7 @@ Resources related to pictures in the API.
 
     + Headers
     
-            Location: /pictures/333
+            Location: /pictures/6867
 
 ### Delete a Picture [DELETE]
 
