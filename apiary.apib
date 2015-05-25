@@ -70,7 +70,7 @@ Resources related to copies in the API.
 + Response 200 (application/json)
 
         {
-            "profileName":"all",
+            "profile":"all",
             "fields":{
                 "CHAN Flyer":"Boolean",
                 "CHAN Consumer Web":"Boolean",
@@ -728,16 +728,80 @@ Resources related to movies in the API.
 
 + Response 200 (application/json)
 
-        {}
+        {
+            "total":1,
+            "offset":0,
+            "limit":10,
+            "profile":"all",
+            "content":[
+            {
+                "id":1, 
+                "name": "test", 
+                "fields":{"Status":0,
+                    "Comments":"",
+                    "Movie Name":"Test.mov",
+                    "Low Res. Path":"/content/Test.mov"
+                }
+            }]
+        }
 
-## Group Documents
-Resources related to documents in the API.
+## Group Editions
+Resources related to editions in the API.
 
-## Documents [/documents]
+## Editions [/editions]
 
-### List All Documents [GET]
+### List All Editions [GET]
 
 + Response 200 (application/json)
 
-        {}
+    + Headers
+
+            Link: <http://127.0.0.1:18080/aoapi/v1/editions?offset=10&limit=10&profile=all>; rel="next"
+
+    + Body
+
+            {
+            "total":30,
+            "offset":0,
+            "limit":10,
+            "profile":"all",
+            "content":[
+                {"id":2,"name":"IH.Europe Essentials 2013-14","fields":{"Comments":"","Edition ID":"IH.Europe Essentials 2013-14","Publication Name":"Brochure","Mod. Date":"2013-05-21","No. of Pages":100,"Starting Page":1,"Edition Status":"History","Edition Prefix":"IH."}},
+                {"id":4,"name":"IH.Europe Essentials 2013-14-AO","fields":{"Comments":"","Edition ID":"IH.Europe Essentials 2013-14-AO","Publication Name":"Brochure","Mod. Date":"2013-05-22","No. of Pages":100,"Starting Page":1,"Edition Status":"History","Edition Prefix":"IH."}},
+                {"id":5,"name":"IH.Hawaii 2013-14","fields":{"Comments":"","Edition ID":"IH.Hawaii 2013-14","Publication Name":"Brochure","Mod. Date":"2013-05-27","No. of Pages":50,"Starting Page":1,"Edition Status":"Current","Edition Prefix":"IH."}},
+                {"id":6,"name":"IH.Hawaii 2013-14-AO","fields":{"Comments":"","Edition ID":"IH.Hawaii 2013-14-AO","Publication Name":"Brochure","Mod. Date":"2013-05-27","No. of Pages":46,"Starting Page":1,"Edition Status":"Current","Edition Prefix":"IH."}},
+                {"id":7,"name":"IH.South Pacific 2013-14","fields":{"Comments":"","Edition ID":"IH.South Pacific 2013-14","Publication Name":"Brochure","Mod. Date":"2013-05-27","No. of Pages":90,"Starting Page":1,"Edition Status":"Current","Edition Prefix":"IH."}},
+                {"id":11,"name":"IH.Northern Territory 2013-14","fields":{"Comments":"","Edition ID":"IH.Northern Territory 2013-14","Publication Name":"Brochure","Mod. Date":"2013-07-17","No. of Pages":46,"Starting Page":1,"Edition Status":"History","Edition Prefix":"IH."}},
+                {"id":12,"name":"IH.Northern Territory 2013-14-AO","fields":{"Comments":"","Edition ID":"IH.Northern Territory 2013-14-AO","Publication Name":"Brochure","Mod. Date":"2013-07-17","No. of Pages":46,"Starting Page":1,"Edition Status":"History","Edition Prefix":"IH."}},
+                {"id":16,"name":"IH.Japan South Korea 2013-14","fields":{"Comments":"","Edition ID":"IH.Japan South Korea 2013-14","Publication Name":"Brochure","Mod. Date":"2013-07-22","No. of Pages":26,"Starting Page":1,"Edition Status":"Current","Edition Prefix":"IH."}},
+                {"id":17,"name":"IH.Japan South Korea 2013-14-AO","fields":{"Comments":"","Edition ID":"IH.Japan South Korea 2013-14-AO","Publication Name":"Brochure","Mod. Date":"2013-07-22","No. of Pages":26,"Starting Page":1,"Edition Status":"Current","Edition Prefix":"IH."}},
+                {"id":18,"name":"IH.New South Wales 2013-14","fields":{"Comments":"","Edition ID":"IH.New South Wales 2013-14","Publication Name":"Brochure","Mod. Date":"2013-07-23","No. of Pages":50,"Starting Page":1,"Edition Status":"Current","Edition Prefix":"IH."}}
+            ]
+            }
+
+
+## Edition's Pages [/editions/{id}/pages]
+
+### List All Edition's Pages [GET]
+
++ Response 200 (application/json)
+
+        {
+            "total":100,
+            "offset":0,
+            "limit":10,
+            "profile":"all",
+            "content":[
+                {"id":13,"name":"Contents","fields":{"Page No.":1,"Comments":"Contents + image","File Name":"Edit2Pg13","Page Name":"Contents","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":14,"name":"Europe Essentials","fields":{"Page No.":2,"Comments":"Image, Editorial - Destination Copy","File Name":"Edit2Pg13","Page Name":"Europe Essentials","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":15,"name":"Holiday Suggestions","fields":{"Page No.":3,"Comments":"Grecian delights","File Name":"Edit2Pg13","Page Name":"Holiday Suggestions","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":16,"name":"Flying there","fields":{"Page No.":4,"Comments":"Singapore Stop-over","File Name":"Edit2Pg13","Page Name":"Flying there","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":17,"name":"Cruising","fields":{"Page No.":5,"Comments":"Carnival Legend Ã Baltic Wonders & St Petersburg","File Name":"Edit2Pg17","Page Name":"Cruising","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":18,"name":"Cruising","fields":{"Page No.":6,"Comments":"Celebrity Silhouette Ã Adriatic Cruise","File Name":"Edit2Pg17","Page Name":"Cruising","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":19,"name":"Cruising","fields":{"Page No.":7,"Comments":"Norwegian Jade Ã Eastern Mediterranean Cruise ","File Name":"Edit2Pg17","Page Name":"Cruising","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":20,"name":"Cruising","fields":{"Page No.":8,"Comments":"ms Nieuw Amsterdam Ã Magic of the Mediterranean","File Name":"Edit2Pg17","Page Name":"Cruising","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":21,"name":"Car Hire","fields":{"Page No.":9,"Comments":"Hertz","File Name":"Edit2Pg17","Page Name":"Car Hire","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}},
+                {"id":22,"name":"Rail","fields":{"Page No.":10,"Comments":"Eurail","File Name":"Edit2Pg17","Page Name":"Rail","Status":"Pagination","Page Open By":"","Page Header 1":"","Page Header 2":"","Page Footer":"","Page Section":""}}
+                ]
+        }
         
