@@ -62,6 +62,60 @@ Resources related to profiles in the API.
 ## Group Copy
 
 Resources related to copies in the API.
+## Metadata [/copies/metadata]
+
+### Metadata Datails [GET]
+
++ Response 200 (application/json)
+
+        {
+            "profileName":"all",
+            "fields":{
+                "CHAN Flyer":"Boolean",
+                "CHAN Consumer Web":"Boolean",
+                "User":"String",
+                "Category":"INT",
+                "FC Brand 1":"Boolean",
+                "CHAN All":"Boolean",
+                "FCGP":"Boolean",
+                "All Companies":"Boolean",
+                "Styled":"INT",
+                "CHAN Reservations":"Boolean",
+                "Copy Text":"TEXT",
+                "Language":"INT",
+                "Flight Centre":"Boolean",
+                "Valid From":"DATE",
+                "Status":"INT",
+                "Order":"INT",
+                "Overnight":"String",
+                "Comments":"String",
+                "New Field":"Boolean",
+                "Mod. Date":"TIMESTAMP",
+                "FC Region 1":"Boolean",
+                "CHAN Brochure":"Boolean",
+                "CHAN Internal":"Boolean",
+                "Copy Name":"String",
+                "Header":"String",
+                "Flight Centre Retail":"Boolean",
+                "CHAN Agent Web":"Boolean",
+                "Day":"String",
+                "Valid To":"DATE",
+                "Page Ref":"String"},
+            "helperSelections":{
+                "Copy Name":[
+                    "IH.address", "IH.bonus",
+                    "IH.class1",
+                    "IH.class2",
+                    "IH.conditions",
+                    "IH.connections",
+                    "IH.currency",
+                    "IH.day1",
+                    "IH.day2","IH.departs","IH.description","IH.dining","IH.distances","IH.duration","IH.electricity","IH.events","IH.experience","IH.favourite","IH.get in the know","IH.getting around","IH.highlights","IH.history culture","IH.includes","IH.includes2","IH.insidertip1","IH.insidertip2","IH.itinerary","IH.language","IH.llifestyle","IH.local customs","IH.map ref","IH.metro","IH.name","IH.natural wonders","IH.note","IH.open","IH.operates","IH.optional","IH.overview","IH.overview brox","IH.overview2","IH.property features","IH.rail pass","IH.rating children","IH.rating max pax","IH.room features","IH.service","IH.ship","IH.shopping","IH.star rating","IH.stopover note","IH.tag line","IH.things to do","IH.time","IH.transfer","IH.travel advice","IH.validity","IH.what to pack","IH.when to go"]},
+            "pickList":{
+                "Status":["Pending","Available","Expired"],
+                "brand":["All","AUFC","AUSF"],
+                "Styled":["Quark Tags","InDesign Tags","HTML Tags","Markdown"]}
+        }
 
 ## Copies Collection [/copies?limit={limit_num}&offset={offset_num}&profile={profile_name}]
 
