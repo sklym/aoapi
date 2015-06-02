@@ -816,8 +816,118 @@ Resources related to documents in the API.
 + Response 200
 
 ## Group CEG to Core 
-
+Allowing import many products to AO Core System
 ## Import products [/c2c/products]
 
 ### Import [POST]
+
++ Request (application/json)
+
+        {
+            "target": 1,
+            "products": [{
+                "product": {
+                    "aoidCode" : "AA000001",
+                    "fields" : {
+                        "ID" : "18447",
+                        "ShipID" : 1,
+                        "ShipName" : "Explorer Of The Seas (ShipName)",
+                        "Language" : "en",
+                        "Gross Tonnage" : "138,000",
+                        "Length" : "1,025 ft",
+                        "Draft" : "29 ft",
+                        "Cruising Speed" : "22 knots",
+                        "Occupancy" : "3,114 double occupancy, 3,807 maximum",
+                        "Max Beam" : "157.5 feet",
+                        "Electric Current" : "110/220 VAC/1500 watts",
+                        "Ship's Registry" : "Bahamas  (note Registry seems to be the same)",
+                        "Entered Service" : "November 18, 2001",
+                        "Last Refurbished" : "April,  2009",
+                        "Rock-climbing wall" : true,
+                        "Ice-skating rink" : true,
+                        "Mini-golf course" : true,
+                        "Basketball court" : true,
+                        "Jogging and In-line skating tracks" : true,
+                        "In-line skating track" : true,
+                        "Golf simulator" : "",
+                        "Officers" : "Italian",
+                        "Crew" : "International"
+                    },
+                    "skuLinkRules" : {
+                        "anchorLinkRules" : [12, 72, 14, 989],
+                        "parentChildLinkRules" : [30, 24, 67, 4574]
+                    }
+                },
+                "copy":[{
+                    "chainPosition" : 0,
+                    "name": "Ship Facts",
+                    "fields" : {
+                        "Title" : "Ship Facts",
+                        "Content" : "<ul>\n<li><b>Gross Tonnage:</b> 138,000</li>\n<li><b>Length:</b> 1,025 ft</li>\n<li><b>Max Beam:</b> 157.5 ft</li>\n<li><b>Draft:</b> 29 ft</li>\n<li><b>Cruising Speed:</b> 22 knots</li>\n</ul>",
+                        "Language" : "en",
+                        "Format" : "bold, italic",
+                        "Styled" : "html",
+                        "Comments" : "",
+                        "Category" : "",
+                        "Type" : 0
+                    }
+                }],
+                "prices":[{
+                    "name":"test.price",
+                    "fields":{
+                        "Price":"10.50"
+                    }
+                }],
+                "pictures":[{
+                    "name":"test-image.jpg",
+                    "fields":{
+                        "Language":"English"
+                    }
+                }],
+                "logos":[],
+                "movies":[],
+                "sounds":[]
+            }],
+            "defaultRules":{
+                "skuRules":{
+                    "objectRules":[],
+                    "fieldRules":[],
+                    "objectTargetAction":"compare",
+                    "anchorActionOnChange":"flag",
+                    "comparePriorityLevel":5,
+                    "embargoDate":"11/03/2015",
+                    "embargoTime":"11:00:00",
+                    "dataSource":"GTA"
+                },
+                "copyRules":{
+                    "objectRules":[{
+                        "name":"test-copy_name",
+                        "objectTargetAction":"live",
+                        "anchorActionOnChange":"flag",
+                        "anchorLinkRules":[1,2,6]
+                    }],
+                    "fieldRules":[] 
+                },
+                "priceRules":{
+                    "objectRules":[],
+                    "fieldRules":[],
+                    "objectTargetAction":"compare"
+                },
+                "pictureRules":{
+                    "objectRules":[],
+                    "fieldRules":[],
+                    "objectTargetAction":"compare"
+                },
+                "logoRules":{},
+                "movieRules":{},
+                "soundRules":{}
+            }
+        }
+        
+
++ Response 200 (application/json)
+
+        {
+            "AA00001": "OK"
+        }
         
