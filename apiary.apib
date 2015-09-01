@@ -814,6 +814,19 @@ Resources related to pictures in the API.
 
 + Response 204 
 
+## Move Picture [/pictures/move?from={from}&to={to}&op={op}]
+
++ Parameters
+    + from (required, string) ... absolute path to source file
+    + to (required, string) ... absolute path to new file
+    + op (required, number) ... option flag to specify special move caseses:
+        op=0; add increment number in file name, if destination file already exists
+        op=1; overwrite (delete destination file and it's generated folders)
+        op=2; cancel move operation, if destination file already exists
+
+### Move Picture [GET]
++ Response 200
+
 ## Group Movies
 Resources related to movies in the API.
 
@@ -839,6 +852,19 @@ Resources related to movies in the API.
                 }
             }]
         }
+
+## Move Movies [/movies/move?from={from}&to={to}&op={op}]
+
++ Parameters
+    + from (required, string) ... absolute path to source file
+    + to (required, string) ... absolute path to new file
+    + op (required, number) ... option flag to specify special move caseses:
+        op=0; add increment number in file name, if destination file already exists
+        op=1; overwrite (delete destination file and it's generated folders)
+        op=2; cancel move operation, if destination file already exists
+
+### Move Movies [GET]
++ Response 200
 
 ## Group Editions
 Resources related to editions in the API.
